@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paryzzé Store</title>
+<meta name="description" content="Moda feminina, teens e consultoria de estilo em Alfenas/MG. Até 6x sem juros.">
+<meta property="og:title" content="Paryzzé Store · Moda Feminina e Consultoria de Estilo">
+<meta property="og:description" content="Descubra suas cores e agende sua consultoria com a Patrícia. Rua Rui Barbosa, 59, Centro, Alfenas – MG.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#EFE3D8">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Jost:wght@300..600&display=swap">
+<style>
+  :root {
+    --bg: #EFE3D8;
+    --surface: #F8F0E9;
+    --ink: #3A2A20;
+    --muted: #72594A;
+    --line: #DCC8B8;
+    --gold: #86603D;
+    --gold-soft: #C4A07A;
+    --rouge: #6E4B33;
+    --rouge-ink: #FBF4EE;
+    --plum: #33251C;
+    --plum-ink: #EFE3D8;
+    --arch-a: #F6EDE5;
+    --arch-b: #D9C1AD;
+    --shadow: 0 30px 60px -30px rgba(70, 45, 25, .45);
+    --display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+    --body: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1F1712; --surface: #2A1F18; --ink: #EFE3D8; --muted: #C2AD9C;
+      --line: #43342A; --gold: #D2AE84; --gold-soft: #A8845F;
+      --rouge: #C9A27A; --rouge-ink: #1F1712; --plum: #EFE3D8; --plum-ink: #2A1F18;
+      --arch-a: #3A2C22; --arch-b: #54412F; --shadow: 0 30px 60px -30px rgba(0,0,0,.7);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1F1712; --surface: #2A1F18; --ink: #EFE3D8; --muted: #C2AD9C;
+    --line: #43342A; --gold: #D2AE84; --gold-soft: #A8845F;
+    --rouge: #C9A27A; --rouge-ink: #1F1712; --plum: #EFE3D8; --plum-ink: #2A1F18;
+    --arch-a: #3A2C22; --arch-b: #54412F; --shadow: 0 30px 60px -30px rgba(0,0,0,.7);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--body); font-size: 17px; line-height: 1.6; font-weight: 380;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 2px; }
+  .wrap { max-width: 1180px; margin-inline: auto; padding-inline: clamp(16px, 4vw, 48px); }
+  h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.04; margin: 0; text-wrap: balance; }
+  h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); letter-spacing: -.01em; }
+  h2 em, h1 em { color: var(--rouge); }
+  p { margin: 0; }
+  .eyebrow {
+    font-size: .74rem; letter-spacing: .22em; text-transform: uppercase; font-weight: 500; color: var(--gold);
+    display: inline-flex; align-items: center; gap: .7em;
+  }
+  .eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; }
+  .lede { color: var(--muted); max-width: 58ch; font-size: 1.08rem; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: .6em;
+    font: 500 .88rem/1 var(--body); letter-spacing: .12em; text-transform: uppercase; text-decoration: none;
+    padding: 1.15em 1.8em; border-radius: 999px; border: 1px solid transparent; cursor: pointer;
+    transition: transform .2s ease, background-color .2s ease, color .2s ease;
+  }
+  .btn-primary { background: var(--rouge); color: var(--rouge-ink); }
+  .btn-primary:hover { transform: translateY(-2px); }
+  .btn-ghost { border-color: var(--ink); color: var(--ink); background: transparent; }
+  .btn-ghost:hover { background: var(--ink); color: var(--bg); }
+  .btn .arrow { transition: transform .2s ease; }
+  .btn:hover .arrow { transform: translateX(4px); }
+
+  /* Top ribbon + header */
+  .ribbon { background: var(--plum); color: var(--plum-ink); font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; }
+  .ribbon .wrap { display: flex; justify-content: center; flex-wrap: wrap; gap: .4em 1.6em; padding-block: .6em; text-align: center; }
+  .ribbon span + span::before { content: "✦"; margin-right: 1.6em; color: var(--gold-soft); }
+  header.site { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  header.site .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .85rem; }
+  .wordmark { font-family: var(--display); font-style: italic; font-size: 1.75rem; text-decoration: none; letter-spacing: -.01em; }
+  .wordmark b { font-weight: 400; color: var(--gold); }
+  .wordmark { display: inline-flex; align-items: center; gap: .6rem; }
+  .wordmark .logo { height: 50px; width: 50px; object-fit: contain; }
+  .medal img, .monogram img { width: 80%; height: 80%; object-fit: contain; }
+  nav.links { display: flex; gap: 2rem; font-size: .82rem; letter-spacing: .14em; text-transform: uppercase; }
+  nav.links a { text-decoration: none; color: var(--muted); }
+  nav.links a:hover { color: var(--ink); }
+  header .btn { padding: .9em 1.3em; font-size: .76rem; }
+
+  /* Hero */
+  .hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; padding-block: clamp(3rem, 7vw, 6rem) clamp(3rem, 6vw, 5rem); }
+  .hero h1 { font-size: clamp(2.8rem, 6.6vw, 5.6rem); letter-spacing: -.02em; margin-block: 1.2rem 1.5rem; }
+  .hero h1 em { font-style: italic; }
+  .hero .actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2.2rem; }
+  .proof { display: flex; flex-wrap: wrap; gap: 1.5rem 2.8rem; margin-top: 2.8rem; padding-top: 1.6rem; border-top: 1px solid var(--line); }
+  .proof div { display: grid; gap: .1rem; }
+  .proof strong { font-family: var(--display); font-weight: 500; font-size: 2rem; line-height: 1; font-variant-numeric: lining-nums; }
+  .proof span { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+
+  .fitting { position: relative; width: 100%; max-width: 440px; justify-self: center; aspect-ratio: 4 / 5.3; }
+  .arch {
+    position: absolute; inset: 0; border-radius: 999px 999px 6px 6px;
+    background: radial-gradient(120% 80% at 50% 10%, var(--arch-a), var(--arch-b));
+    border: 1px solid var(--gold-soft); box-shadow: var(--shadow); overflow: hidden;
+  }
+  .arch::after { content: ""; position: absolute; inset: 12px; border-radius: inherit; border: 1px solid color-mix(in srgb, var(--gold-soft) 55%, transparent); pointer-events: none; }
+  .fan { position: absolute; left: 50%; bottom: 13%; width: 0; height: 0; }
+  .swatch {
+    position: absolute; left: -34px; bottom: 0; width: 68px; height: 250px; border-radius: 6px 6px 3px 3px;
+    transform-origin: 50% 92%; transform: rotate(var(--r));
+    box-shadow: 0 10px 18px -8px rgba(40, 10, 25, .45);
+    display: flex; align-items: flex-start; justify-content: center; padding-top: 12px;
+    animation: fan-open 1.1s cubic-bezier(.2,.7,.2,1) both; animation-delay: var(--d);
+  }
+  .swatch i { font-style: normal; font-size: .56rem; letter-spacing: .14em; text-transform: uppercase; writing-mode: vertical-rl; transform: rotate(180deg); color: rgba(255,255,255,.85); }
+  .swatch.light i { color: rgba(43,23,32,.7); }
+  @keyframes fan-open { from { transform: rotate(0deg); } to { transform: rotate(var(--r)); } }
+  .medal {
+    position: absolute; left: 50%; bottom: 7%; translate: -50% 0; width: 112px; height: 112px; border-radius: 50%;
+    background: var(--surface); border: 1px solid var(--gold); display: grid; place-items: center;
+    font-family: var(--display); font-size: 2.6rem; color: var(--gold); box-shadow: 0 0 0 6px var(--surface), 0 0 0 7px var(--gold-soft);
+  }
+  .tag {
+    position: absolute; background: var(--surface); border: 1px solid var(--line); border-radius: 4px;
+    padding: .55rem .8rem; font-size: .74rem; line-height: 1.3; box-shadow: var(--shadow);
+  }
+  .tag b { display: block; font-family: var(--display); font-style: italic; font-weight: 500; font-size: 1rem; }
+  .tag.t1 { top: 16%; left: -8%; }
+  .tag.t2 { top: 42%; right: -9%; }
+
+  /* Sections */
+  section.block { padding-block: clamp(4rem, 9vw, 7rem); }
+  .head { display: grid; gap: 1rem; margin-bottom: 3rem; max-width: 760px; }
+
+  /* Consultoria steps */
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--ink); }
+  .steps li { padding: 1.8rem 1.6rem 0 0; display: grid; gap: .7rem; align-content: start; }
+  .steps li + li { padding-left: 1.6rem; border-left: 1px solid var(--line); }
+  .steps .num { font-family: var(--display); font-style: italic; font-size: 2.4rem; color: var(--gold); line-height: 1; }
+  .steps h3 { font-size: 1.5rem; }
+  .steps p { color: var(--muted); font-size: .98rem; }
+
+  /* Quiz */
+  .quiz-band { background: var(--plum); color: var(--plum-ink); }
+  .quiz-band .eyebrow { color: var(--gold-soft); }
+  .quiz-band h2 em { color: var(--gold-soft); }
+  .quiz-band .lede { color: color-mix(in srgb, var(--plum-ink) 72%, transparent); }
+  .quiz { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+  .qs { display: grid; gap: 2rem; }
+  fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: .8rem; }
+  legend { font-family: var(--display); font-size: 1.35rem; margin-bottom: .8rem; padding: 0; }
+  legend small { display: block; font-family: var(--body); font-size: .74rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: .3rem; }
+  .opts { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .opt input { position: absolute; opacity: 0; pointer-events: none; }
+  .opt span {
+    display: inline-block; padding: .7em 1.1em; border-radius: 999px; cursor: pointer; font-size: .92rem;
+    border: 1px solid color-mix(in srgb, var(--plum-ink) 35%, transparent); transition: background-color .2s, color .2s, border-color .2s;
+  }
+  .opt span:hover { border-color: var(--plum-ink); }
+  .opt input:checked + span { background: var(--plum-ink); color: var(--plum); border-color: var(--plum-ink); }
+  .opt input:focus-visible + span { outline: 2px solid var(--gold-soft); outline-offset: 3px; }
+
+  .result { background: var(--bg); color: var(--ink); border-radius: 4px; padding: clamp(1.5rem, 3vw, 2.4rem); display: grid; gap: 1.1rem; position: sticky; top: 100px; }
+  .result .season { font-family: var(--display); font-style: italic; font-size: clamp(2.6rem, 5vw, 3.6rem); line-height: 1; }
+  .result .kicker { font-size: .74rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+  .palette { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
+  .palette div { aspect-ratio: 1 / 1.5; border-radius: 3px; transition: background-color .5s ease; }
+  .result p { color: var(--muted); }
+  .result .note { font-size: .8rem; }
+  .progress { font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+
+  /* Collections */
+  .cols { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 1rem; }
+  .col {
+    position: relative; display: grid; align-content: end; gap: .5rem; min-height: 340px; padding: 1.6rem;
+    text-decoration: none; border-radius: 4px; overflow: hidden; color: var(--ink);
+    background: var(--surface); border: 1px solid var(--line); transition: transform .3s ease;
+  }
+  .col:hover { transform: translateY(-4px); }
+  .col .big { position: absolute; top: -.12em; right: .08em; font-family: var(--display); font-style: italic; font-size: 13rem; line-height: 1; color: var(--line); pointer-events: none; }
+  .col h3 { font-size: 2rem; position: relative; }
+  .col p { color: var(--muted); font-size: .95rem; position: relative; max-width: 34ch; }
+  .col .go { position: relative; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--rouge); margin-top: .6rem; }
+  .col.feature { background: var(--rouge); border-color: var(--rouge); color: var(--rouge-ink); }
+  .col.feature p { color: color-mix(in srgb, var(--rouge-ink) 80%, transparent); }
+  .col.feature .go { color: var(--rouge-ink); }
+  .col.feature .big { color: color-mix(in srgb, var(--rouge-ink) 14%, transparent); }
+
+  /* Manifesto */
+  .manifesto { text-align: left; border-block: 1px solid var(--line); }
+  .manifesto .wrap { display: grid; grid-template-columns: auto 1fr; gap: clamp(1.5rem, 4vw, 4rem); align-items: center; padding-block: clamp(3.5rem, 8vw, 6rem); }
+  .monogram { width: clamp(110px, 16vw, 170px); aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--gold); color: var(--gold); font-family: var(--display); font-size: clamp(3.5rem, 7vw, 5.5rem); box-shadow: inset 0 0 0 8px var(--bg), inset 0 0 0 9px var(--gold-soft); }
+  blockquote { margin: 0; }
+  blockquote p { font-family: var(--display); font-style: italic; font-size: clamp(2rem, 4.8vw, 3.8rem); line-height: 1.08; text-wrap: balance; }
+  blockquote cite { display: block; margin-top: 1.2rem; font-style: normal; font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+  .manifesto .actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
+
+  /* FAQ + visit */
+  .visit { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(2rem, 6vw, 6rem); align-items: start; }
+  .faq details { border-bottom: 1px solid var(--line); }
+  .faq details:first-child { border-top: 1px solid var(--ink); }
+  .faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 1rem; padding-block: 1.25rem; font-family: var(--display); font-size: 1.3rem; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; font-family: var(--body); font-weight: 300; font-size: 1.6rem; line-height: 1; color: var(--gold); transition: transform .25s; }
+  .faq details[open] summary::after { transform: rotate(45deg); }
+  .faq details p { color: var(--muted); padding-bottom: 1.3rem; max-width: 60ch; }
+  .card-visit { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 2rem; display: grid; gap: 1.2rem; margin-top: 2rem; }
+  .card-visit dl { margin: 0; display: grid; gap: .9rem; }
+  .card-visit dt { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
+  .card-visit dd { margin: 0; font-size: 1.05rem; }
+  .visit-actions { display: flex; flex-wrap: wrap; gap: .6rem; }
+
+  /* Final CTA */
+  .final { background: var(--rouge); color: var(--rouge-ink); text-align: center; }
+  .final .wrap { display: grid; justify-items: center; gap: 1.4rem; padding-block: clamp(4rem, 9vw, 6.5rem); }
+  .final h2 { font-size: clamp(2.4rem, 6vw, 4.6rem); max-width: 16ch; }
+  .final h2 em { color: var(--rouge-ink); }
+  .final p { max-width: 50ch; color: color-mix(in srgb, var(--rouge-ink) 82%, transparent); }
+  .final .btn-light { background: var(--rouge-ink); color: var(--rouge); }
+  .final .btn-outline { border-color: var(--rouge-ink); color: var(--rouge-ink); }
+  .final .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .8rem; margin-top: .6rem; }
+
+  footer { padding-block: 2rem 6rem; font-size: .82rem; color: var(--muted); }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
+
+  .mobile-cta { display: none; }
+
+  @media (max-width: 960px) {
+    nav.links { display: none; }
+    .hero .wrap { grid-template-columns: 1fr; }
+    .fitting { max-width: 360px; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .steps li:nth-child(3) { padding-left: 0; border-left: 0; }
+    .quiz, .visit { grid-template-columns: 1fr; }
+    .result { position: static; }
+    .cols { grid-template-columns: 1fr; }
+    .col { min-height: 240px; }
+  }
+  @media (max-width: 600px) {
+    body { font-size: 16px; }
+    header .btn { display: none; }
+    .steps { grid-template-columns: 1fr; }
+    .steps li, .steps li + li { padding: 1.4rem 0; border-left: 0; }
+    .steps li + li { border-top: 1px solid var(--line); }
+    .tag.t1 { left: 0; } .tag.t2 { right: 0; }
+    .swatch { height: 200px; width: 56px; left: -28px; }
+    .manifesto .wrap { grid-template-columns: 1fr; }
+    .mobile-cta {
+      display: flex; position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 30;
+      box-shadow: 0 12px 30px -10px rgba(50,30,15,.6);
+    }
+    .mobile-cta .btn { flex: 1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .swatch { animation: none; }
+    * { transition-duration: 0s !important; }
+  }
+</style>
+</head>
+<body>
+<div class="ribbon">
+  <div class="wrap">
+    <span>Até 6x sem juros</span>
+    <span>Compre online ou na loja</span>
+    <span>Rua Rui Barbosa, 59 · Centro · Alfenas</span>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="wordmark" href="#topo" aria-label="Paryzzé Store">
+      <img class="logo" src="assets/logo.png" alt="" onerror="this.remove()">
+      <span>Paryz<b>zé</b></span>
+    </a>
+    <nav class="links" aria-label="Seções">
+      <a href="#consultoria">Consultoria</a>
+      <a href="#cores">Teste de cores</a>
+      <a href="#colecoes">Coleções</a>
+      <a href="#visite">Visite</a>
+    </nav>
+    <a class="btn btn-primary js-book" href="https://ig.me/m/paryzzestore" target="_blank" rel="noopener">Agendar consultoria</a>
+  </div>
+</header>
+
+<main id="topo">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Moda feminina &amp; teens + consultoria de estilo</span>
+        <h1>Armário cheio e <em>nada para vestir?</em> A gente resolve.</h1>
+        <p class="lede">Na Paryzzé você não escolhe roupa sozinha. A consultoria de estilo descobre as cores, os cortes e as peças que valorizam você, e a loja já tem tudo pronto para você levar.</p>
+        <div class="actions">
+          <a class="btn btn-primary js-book" href="https://ig.me/m/paryzzestore" target="_blank" rel="noopener">Agendar minha consultoria <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#cores">Fazer o teste de cores</a>
+        </div>
+        <div class="proof">
+          <div><strong>68 mil</strong><span>seguidores no Instagram</span></div>
+          <div><strong>6x</strong><span>sem juros</span></div>
+          <div><strong>2 estilos</strong><span>feminina &amp; teens</span></div>
+        </div>
+      </div>
+
+      <div class="fitting" aria-hidden="true">
+        <div class="arch">
+          <div class="fan">
+            <div class="swatch" style="--r:-48deg; --d:.05s; background:#7E2440"><i>Bordô</i></div>
+            <div class="swatch" style="--r:-32deg; --d:.1s; background:#B5654A"><i>Terracota</i></div>
+            <div class="swatch light" style="--r:-16deg; --d:.15s; background:#D9A441"><i>Mostarda</i></div>
+            <div class="swatch" style="--r:0deg; --d:.2s; background:#5E6F4A"><i>Oliva</i></div>
+            <div class="swatch" style="--r:16deg; --d:.25s; background:#2F5D73"><i>Petróleo</i></div>
+            <div class="swatch" style="--r:32deg; --d:.3s; background:#6B4E8A"><i>Ameixa</i></div>
+            <div class="swatch light" style="--r:48deg; --d:.35s; background:#E8B9C2"><i>Rosé</i></div>
+          </div>
+          <div class="medal"><img src="assets/logo.png" alt="" onerror="this.replaceWith('P')"></div>
+        </div>
+        <div class="tag t1"><b>Cartela de cores</b>as suas, não as da moda</div>
+        <div class="tag t2"><b>Provador guiado</b>looks montados para você</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="consultoria">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Como funciona a consultoria</span>
+        <h2>Da conversa ao look pronto, <em>sem tentativa e erro.</em></h2>
+      </div>
+      <ol class="steps">
+        <li>
+          <span class="num">I.</span>
+          <h3>Conversa</h3>
+          <p>Entendemos sua rotina, trabalho, momentos importantes e como você quer se sentir ao se vestir.</p>
+        </li>
+        <li>
+          <span class="num">II.</span>
+          <h3>Análise</h3>
+          <p>Coloração pessoal, formato do corpo e estilo: o que realça você e o que pode sair do armário.</p>
+        </li>
+        <li>
+          <span class="num">III.</span>
+          <h3>Provador guiado</h3>
+          <p>Você experimenta looks montados para o seu perfil, com peças que já estão na loja.</p>
+        </li>
+        <li>
+          <span class="num">IV.</span>
+          <h3>Confiança</h3>
+          <p>Você sai sabendo combinar, comprar melhor e se reconhecer no espelho todos os dias.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block quiz-band" id="cores">
+    <div class="wrap quiz">
+      <div>
+        <div class="head">
+          <span class="eyebrow">Teste rápido · 30 segundos</span>
+          <h2>Qual estação combina com <em>você?</em></h2>
+          <p class="lede">A coloração pessoal divide as pessoas em quatro estações. Responda três perguntas e veja uma prévia da sua cartela.</p>
+        </div>
+        <form class="qs" id="quiz" onsubmit="return false">
+          <fieldset>
+            <legend><small>Pergunta 1 de 3</small>Olhe as veias do seu pulso. Elas parecem…</legend>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="veias" id="veias-verde" value="quente"><span>Esverdeadas</span></label>
+              <label class="opt"><input type="radio" name="veias" id="veias-azul" value="fria"><span>Azuladas ou arroxeadas</span></label>
+              <label class="opt"><input type="radio" name="veias" id="veias-nsei" value="neutra"><span>Não sei dizer</span></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend><small>Pergunta 2 de 3</small>Qual joia valoriza mais o seu rosto?</legend>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="joia" id="joia-ouro" value="quente"><span>Dourada</span></label>
+              <label class="opt"><input type="radio" name="joia" id="joia-prata" value="fria"><span>Prateada</span></label>
+              <label class="opt"><input type="radio" name="joia" id="joia-ambas" value="neutra"><span>As duas</span></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend><small>Pergunta 3 de 3</small>Seu cabelo e olhos em relação à pele têm…</legend>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="contraste" id="contraste-alto" value="alto"><span>Alto contraste</span></label>
+              <label class="opt"><input type="radio" name="contraste" id="contraste-medio" value="baixo"><span>Contraste médio</span></label>
+              <label class="opt"><input type="radio" name="contraste" id="contraste-suave" value="baixo"><span>Tons próximos, suaves</span></label>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+
+      <aside class="result" aria-live="polite">
+        <span class="kicker" id="r-kicker">Exemplo de resultado</span>
+        <div class="season" id="r-season">Outono</div>
+        <div class="palette" id="r-palette"></div>
+        <p id="r-text">Tons terrosos e quentes: caramelo, oliva, mostarda e terracota. Responda às perguntas para ver a sua.</p>
+        <span class="progress" id="r-progress">0 de 3 respondidas</span>
+        <a class="btn btn-primary js-book" id="r-cta" href="https://ig.me/m/paryzzestore" target="_blank" rel="noopener">Confirmar na consultoria <span class="arrow" aria-hidden="true">→</span></a>
+        <p class="note">Esta é uma prévia. A análise completa é feita pessoalmente, com tecidos e luz natural.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="block" id="colecoes">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Na loja e no Instagram</span>
+        <h2>Peças escolhidas a dedo, <em>para cada fase.</em></h2>
+      </div>
+      <div class="cols">
+        <a class="col feature" href="https://www.instagram.com/paryzzestore/" target="_blank" rel="noopener">
+          <span class="big" aria-hidden="true">F</span>
+          <h3>Moda Feminina</h3>
+          <p>Do trabalho ao jantar: peças versáteis que conversam entre si e com a sua cartela.</p>
+          <span class="go">Ver vitrine →</span>
+        </a>
+        <a class="col" href="https://www.instagram.com/paryzzestore/" target="_blank" rel="noopener">
+          <span class="big" aria-hidden="true">T</span>
+          <h3>Moda Teens</h3>
+          <p>Estilo com a cara delas, com o cuidado que as mães aprovam.</p>
+          <span class="go">Ver no Instagram →</span>
+        </a>
+        <a class="col" href="https://www.instagram.com/paryzzestore/" target="_blank" rel="noopener">
+          <span class="big" aria-hidden="true">A</span>
+          <h3>Acessórios</h3>
+          <p>O detalhe que termina o look e muda a leitura da roupa.</p>
+          <span class="go">Ver no Instagram →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="manifesto">
+    <div class="wrap">
+      <div class="monogram" aria-hidden="true"><img src="assets/logo.png" alt="" onerror="this.replaceWith('P')"></div>
+      <div>
+        <blockquote>
+          <p>“Transformamos mulheres através da moda.”</p>
+          <cite>Paryzzé Store · @paryzzestore</cite>
+        </blockquote>
+        <div class="actions">
+          <a class="btn btn-ghost" href="https://www.instagram.com/paryzzestore/" target="_blank" rel="noopener">Ver “Elas de Paryzzé” e “Dicas da Paty”</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="visite">
+    <div class="wrap visit">
+      <div>
+        <div class="head">
+          <span class="eyebrow">Novo espaço</span>
+          <h2>Venha viver a <em>experiência</em> Paryzzé.</h2>
+          <p class="lede">Atendimento na loja, no Centro de Alfenas, ou compra online pelo WhatsApp. Você escolhe como prefere.</p>
+        </div>
+        <div class="card-visit">
+          <dl>
+            <div><dt>Endereço</dt><dd>Rua Rui Barbosa, 59, loja 5<br>Centro, Alfenas – MG</dd></div>
+            <div><dt>Pagamento</dt><dd>Até 6x sem juros</dd></div>
+            <div><dt>Atendimento</dt><dd>Na loja ou online, com a consultora Patrícia</dd></div>
+          </dl>
+          <div class="visit-actions">
+            <a class="btn btn-primary js-book" href="https://ig.me/m/paryzzestore" target="_blank" rel="noopener">Falar com a Patrícia</a>
+            <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Rua+Rui+Barbosa%2C+59%2C+Centro%2C+Alfenas+-+MG" target="_blank" rel="noopener">Como chegar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq">
+        <details open>
+          <summary>Posso comprar sem ir até a loja?</summary>
+          <p>Pode. Chame a consultora Patrícia no WhatsApp: ela mostra as peças, tira dúvidas e finaliza a sua compra online.</p>
+        </details>
+        <details>
+          <summary>Como agendo a consultoria de estilo?</summary>
+          <p>Mande uma mensagem para a Patrícia no WhatsApp com o seu nome e o melhor dia. Ela confirma o horário e explica cada etapa.</p>
+        </details>
+        <details>
+          <summary>Tem roupa para adolescentes?</summary>
+          <p>Tem. A linha Moda Teens tem peças pensadas para essa fase, e você pode escolher junto com a sua filha.</p>
+        </details>
+        <details>
+          <summary>Quais as formas de pagamento?</summary>
+          <p>Parcelamos em até 6x sem juros. Consulte as outras opções no destaque “Forma de pag” do Instagram.</p>
+        </details>
+        <details>
+          <summary>Como fico sabendo das novidades primeiro?</summary>
+          <p>Entre no Grupo VIP Paryzzé no WhatsApp: novidades e o Sale aparecem lá antes de chegarem ao feed.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <span class="eyebrow" style="color:inherit">Seu próximo look começa aqui</span>
+      <h2>Vista-se como a mulher <em>que você já é.</em></h2>
+      <p>Agende sua consultoria com a Patrícia ou entre no Grupo VIP para ver novidades e o Sale antes de todo mundo.</p>
+      <div class="actions">
+        <a class="btn btn-light js-book" href="https://ig.me/m/paryzzestore" target="_blank" rel="noopener">Agendar consultoria <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="btn btn-outline" href="https://chat.whatsapp.com/C8AKKontiSXH21BAU3fSJY" target="_blank" rel="noopener">Entrar no Grupo VIP</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Paryzzé Store · Rua Rui Barbosa, 59, loja 5, Centro, Alfenas – MG</span>
+    <a href="https://www.instagram.com/paryzzestore/" target="_blank" rel="noopener">@paryzzestore</a>
+  </div>
+</footer>
+
+<div class="mobile-cta">
+  <a class="btn btn-primary js-book" href="https://ig.me/m/paryzzestore" target="_blank" rel="noopener">Agendar consultoria <span class="arrow" aria-hidden="true">→</span></a>
+</div>
+
+<script>
+  // WhatsApp da consultora Patrícia (link da bio). Vazio = botões abrem o Direct do Instagram.
+  const WHATSAPP = "5535988323328";
+  const DIRECT = "https://ig.me/m/paryzzestore";
+
+  const SEASONS = {
+    Primavera: { colors: ["#F29E7E", "#F6C85F", "#8CC28A", "#4FB3C9", "#E86A7A", "#F4E3C1"],
+      text: "Cores quentes e luminosas: coral, pêssego, amarelo-manteiga e verde-folha. Tecidos leves e brilho suave." },
+    Verão: { colors: ["#A9B8D6", "#C7A3C4", "#8FAEA6", "#E3B7C2", "#6E7FA8", "#EDE6EA"],
+      text: "Cores frias e suaves: rosa antigo, lavanda, azul-acinzentado e verde-água. Nada muito saturado." },
+    Outono: { colors: ["#8C4A2F", "#C27A3A", "#D9A441", "#5E6F4A", "#7A5230", "#E7D2B5"],
+      text: "Tons terrosos e quentes: caramelo, oliva, mostarda e terracota. Dourado é o seu metal." },
+    Inverno: { colors: ["#141418", "#7E2440", "#1F4E8C", "#0E7C6B", "#B01E5A", "#F5F5F7"],
+      text: "Cores frias e intensas: preto, branco puro, pink, azul-royal e esmeralda. Contraste é seu aliado." }
+  };
+
+  const $ = (id) => document.getElementById(id);
+  const form = $("quiz");
+
+  function render(name, answered) {
+    const s = SEASONS[name];
+    $("r-season").textContent = name;
+    $("r-palette").innerHTML = s.colors.map(c => `<div style="background:${c}"></div>`).join("");
+    if (answered < 3) {
+      $("r-kicker").textContent = answered === 0 ? "Exemplo de resultado" : "Continue respondendo…";
+      $("r-progress").textContent = `${answered} de 3 respondidas`;
+      $("r-progress").hidden = false;
+      if (answered === 0) $("r-text").textContent = s.text + " Responda às perguntas para ver a sua.";
+      return;
+    }
+    $("r-kicker").textContent = "Sua prévia de estação";
+    $("r-text").textContent = s.text;
+    $("r-progress").hidden = true;
+    $("r-cta").textContent = `Confirmar meu ${name} com a Patrícia →`;
+  }
+
+  function evaluate() {
+    const data = new FormData(form);
+    const veias = data.get("veias"), joia = data.get("joia"), contraste = data.get("contraste");
+    const answered = [veias, joia, contraste].filter(Boolean).length;
+    if (answered < 3) { $("r-progress").textContent = `${answered} de 3 respondidas`; $("r-kicker").textContent = "Continue respondendo…"; return; }
+    let score = 0;
+    for (const v of [veias, joia]) score += v === "quente" ? 1 : v === "fria" ? -1 : 0;
+    const quente = score >= 0;
+    const name = quente ? (contraste === "alto" ? "Outono" : "Primavera") : (contraste === "alto" ? "Inverno" : "Verão");
+    render(name, 3);
+    updateLinks(name);
+  }
+
+  function updateLinks(season) {
+    if (!WHATSAPP) return;
+    const msg = season
+      ? `Oi, Patrícia! Fiz o teste no site e deu ${season}. Quero agendar minha consultoria de estilo.`
+      : "Oi, Patrícia! Vim pelo site e quero agendar minha consultoria de estilo.";
+    const url = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+    document.querySelectorAll(".js-book").forEach(a => a.href = url);
+  }
+
+  form.addEventListener("change", evaluate);
+  render("Outono", 0);
+  updateLinks(null);
+</script>
+
+</body>
+</html>
