@@ -53,11 +53,12 @@
     margin: 0; background: var(--bg); color: var(--ink);
     font-family: var(--body); font-size: 17px; line-height: 1.6; font-weight: 380;
     -webkit-font-smoothing: antialiased;
+    font-optical-sizing: none; font-variation-settings: "opsz" 11;
   }
   a { color: inherit; }
   :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 2px; }
   .wrap { max-width: 1180px; margin-inline: auto; padding-inline: clamp(16px, 4vw, 48px); }
-  h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.04; margin: 0; text-wrap: balance; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 500; line-height: 1.1; margin: 0; text-wrap: balance; }
   h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); letter-spacing: -.01em; }
   h2 em, h1 em { color: var(--rouge); }
   p { margin: 0; }
@@ -99,7 +100,7 @@
 
   /* Hero */
   .hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; padding-block: clamp(3rem, 7vw, 6rem) clamp(3rem, 6vw, 5rem); }
-  .hero h1 { font-size: clamp(2.8rem, 6.6vw, 5.6rem); letter-spacing: -.02em; margin-block: 1.2rem 1.5rem; }
+  .hero h1 { font-size: clamp(2.5rem, 5.4vw, 4.5rem); letter-spacing: -.01em; margin-block: 1.2rem 1.5rem; }
   .hero h1 em { font-style: italic; }
   .hero .actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2.2rem; }
   .proof { display: flex; flex-wrap: wrap; gap: 1.5rem 2.8rem; margin-top: 2.8rem; padding-top: 1.6rem; border-top: 1px solid var(--line); }
@@ -201,7 +202,7 @@
   .manifesto .wrap { display: grid; grid-template-columns: auto 1fr; gap: clamp(1.5rem, 4vw, 4rem); align-items: center; padding-block: clamp(3.5rem, 8vw, 6rem); }
   .monogram { width: clamp(110px, 16vw, 170px); aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--gold); color: var(--gold); font-family: var(--display); font-size: clamp(3.5rem, 7vw, 5.5rem); box-shadow: inset 0 0 0 8px var(--bg), inset 0 0 0 9px var(--gold-soft); }
   blockquote { margin: 0; }
-  blockquote p { font-family: var(--display); font-style: italic; font-size: clamp(2rem, 4.8vw, 3.8rem); line-height: 1.08; text-wrap: balance; }
+  blockquote p { font-family: var(--display); font-style: italic; font-weight: 500; font-size: clamp(1.9rem, 4.2vw, 3.2rem); line-height: 1.12; text-wrap: balance; }
   blockquote cite { display: block; margin-top: 1.2rem; font-style: normal; font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
   .manifesto .actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
 
