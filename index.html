@@ -238,10 +238,12 @@
   .foot-brand img { width: 56px; height: 56px; object-fit: contain; }
   .foot-brand div { display: grid; gap: .1rem; }
   .foot-brand strong { font-family: var(--display); font-style: italic; font-weight: 500; font-size: 1.3rem; color: var(--ink); }
-  .foot-legal { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem 0; letter-spacing: .04em; }
+  .foot-ig { display: inline-flex; align-items: center; gap: .6rem; color: var(--gold); text-decoration: none; font-family: var(--display); font-style: italic; font-weight: 500; font-size: 1.3rem; }
+  .foot-ig svg { flex: none; transition: transform .2s ease; }
+  .foot-ig:hover span { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+  .foot-ig:hover svg { transform: scale(1.08); }
+  .foot-legal { flex-basis: 100%; display: flex; flex-wrap: wrap; align-items: center; gap: .3rem 0; letter-spacing: .04em; padding-top: 1.2rem; border-top: 1px solid var(--line); }
   .foot-legal > * + *::before { content: "·"; margin-inline: .7em; color: var(--gold); }
-  .foot-legal a { color: var(--gold); text-decoration: none; font-weight: 500; }
-  .foot-legal a:hover { text-decoration: underline; }
 
   .mobile-cta { display: none; }
 
@@ -532,8 +534,15 @@
         <span>Rua Rui Barbosa, 59, loja 5, Centro, Alfenas – MG</span>
       </div>
     </div>
+    <a class="foot-ig" href="https://www.instagram.com/paryzzestore/" target="_blank" rel="noopener" aria-label="Instagram @paryzzestore">
+      <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+        <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+        <circle cx="12" cy="12" r="4.2"></circle>
+        <circle cx="17.4" cy="6.6" r=".6" fill="currentColor" stroke="none"></circle>
+      </svg>
+      <span>@paryzzestore</span>
+    </a>
     <p class="foot-legal">
-      <a href="https://www.instagram.com/paryzzestore/" target="_blank" rel="noopener">@paryzzestore</a>
       <span>© 2026 · Todos os direitos reservados</span>
       <span>Por Mesquita SaaS</span>
     </p>
